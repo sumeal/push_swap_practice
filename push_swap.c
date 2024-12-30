@@ -6,7 +6,7 @@
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:17:21 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/30 12:47:23 by abin-moh         ###   ########.fr       */
+/*   Updated: 2024/12/30 15:34:24 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 int	main(int argc, char **argv)
 {
-	t_stacks	stacks;
+	t_stack	*a;
 
-	input_error(argc, argv);
-	stacks.
+	a = ft_process(argc, argv);
+	if (!a || ft_checkdup(a))
+	{
+		ft_free(&a);
+		ft_error();
+	}
+	if (!ft_checksorted(a))
+		ft_sort(&a);
+	ft_free(&a);
+	return (0);
 }

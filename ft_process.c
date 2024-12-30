@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_process.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:37:13 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/30 15:13:23 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/30 15:21:05 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/30 15:24:02 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_stack
+t_stack	*ft_process(int argc, char **argv)
 {
-	long			nbr;
-	long			index;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}	t_stack;
+	t_stack		*a;
+	int			i;
+	int			j;
 
-#endif
+	i = 1;
+	a = NULL;
+	if (argc < 2)
+		ft_error();
+	if (argc == 2)
+		a = ft_sub_process(argv);
+	else
+	{
+		while (i < argc)
+		{
+			j = ft_atoi2(argv[i]);
+			ft_add_back(&a, ft_stack_new(j));
+			i++;
+		}
+	}
+	return (a);
+}
