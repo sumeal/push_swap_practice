@@ -6,7 +6,7 @@
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 12:37:13 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/30 15:13:23 by abin-moh         ###   ########.fr       */
+/*   Updated: 2024/12/30 16:47:36 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+
 
 #endif

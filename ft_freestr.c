@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sub_process.c                                   :+:      :+:    :+:   */
+/*   ft_freestr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 15:34:06 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/30 16:28:54 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/30 16:40:41 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/30 16:43:14 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_sub_process(char **argv)
+void	ft_freestr(char **lst)
 {
-	t_stack	*a;
-	char	**tmp;
-	int		i;
-	int		j;
+	char	*n1;
 
-	a = NULL;
-	i = 0;
-	tmp = ft_split(argv[i], 32);
-	while (tmp[i])
+	if (!lst)
+		return ;
+	while (*lst)
 	{
-		j = ft_atoi2(tmp[i]);
-		ft_add_back(&a, ft_stack_new(j));
-		i++;
+		n1 = *lst;
+		lst++;
+		free(n1);
 	}
-	ft_freestr(tmp);
-	free(tmp);
-	return (a);
+	*lst = NULL;
 }

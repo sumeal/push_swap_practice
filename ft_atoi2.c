@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sub_process.c                                   :+:      :+:    :+:   */
+/*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 15:34:06 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/30 16:28:54 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/30 16:05:07 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/30 16:44:43 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_sub_process(char **argv)
+int	ft_atoi2(const char *str)
 {
-	t_stack	*a;
-	char	**tmp;
-	int		i;
-	int		j;
+	int			sign;
+	long long	i;
 
-	a = NULL;
 	i = 0;
-	tmp = ft_split(argv[i], 32);
-	while (tmp[i])
+	sign = 1;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		j = ft_atoi2(tmp[i]);
-		ft_add_back(&a, ft_stack_new(j));
-		i++;
+		if (*str == '-')
+			sign = -sign;
+		str++;
 	}
-	ft_freestr(tmp);
-	free(tmp);
-	return (a);
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			ft_error();
+		i = i * 10 + (*str - '0');
+		str++;
+	}
+	if ((sign * i) > 2147483647 || (sign * i < -2147483648))
+		ft_error();
+	return (i * sign);
 }
