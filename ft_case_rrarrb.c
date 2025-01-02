@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_case_rrarrb.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:17:21 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 10:17:35 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/31 16:09:37 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/31 16:16:19 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_case_rrarrb(t_stack *a, t_stack *b, int c)
 {
-	t_stack	*a;
+	int	i;
 
-	a = ft_process(argc, argv);
-	if (!a || ft_checkdup(a))
-	{
-		ft_free(&a);
-		ft_error();
-	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	i = 0;
+	if (ft_find_place_b(b, c))
+		i = ft_lstsize(b) - ft_find_place_b(b, c);
+	if ((i < (ft_lstsize(a) - ft_find_index(a, c))) && ft_find_index(a, c))
+		i = ft_lstsize(a) - ft_find_index (a, c);
+	return (i);
 }

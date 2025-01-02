@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:17:21 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 10:17:35 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/31 16:47:24 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/31 16:49:01 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_max(t_stack *a)
 {
-	t_stack	*a;
+	int	i;
 
-	a = ft_process(argc, argv);
-	if (!a || ft_checkdup(a))
+	i = a->nbr;
+	while (a)
 	{
-		ft_free(&a);
-		ft_error();
+		if (a->nbr > i)
+			i = a->nbr;
+		a = a->next;
 	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	return (i);
 }

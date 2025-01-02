@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:17:21 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 10:17:35 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/31 11:41:33 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/31 11:45:10 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	ft_sa(t_stack **a, int j)
 {
-	t_stack	*a;
+	t_stack	*tmp;
 
-	a = ft_process(argc, argv);
-	if (!a || ft_checkdup(a))
-	{
-		ft_free(&a);
-		ft_error();
-	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	if (!*a || !((*a)->next))
+		return ;
+	tmp = *a;
+	*a = (*a)->next;
+	(*a)->next = temp;
+	if (j == 0)
+		write(1, "sa\n", 1);
 }

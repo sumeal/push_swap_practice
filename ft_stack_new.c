@@ -6,13 +6,13 @@
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 16:26:48 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/30 16:44:56 by abin-moh         ###   ########.fr       */
+/*   Updated: 2024/12/31 09:56:31 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	ft_stack_new(int content)
+t_stack	*ft_stack_new(int content)
 {
 	t_stack	*new;
 

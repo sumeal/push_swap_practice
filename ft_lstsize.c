@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/30 12:17:21 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 10:17:35 by abin-moh         ###   ########.fr       */
+/*   Created: 2024/12/31 14:16:34 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/31 14:17:59 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	ft_lstsize(t_stack *lst)
 {
-	t_stack	*a;
+	size_t	i;
 
-	a = ft_process(argc, argv);
-	if (!a || ft_checkdup(a))
+	i = 0;
+	while(lst)
 	{
-		ft_free(&a);
-		ft_error();
+		lst = lst->next;
+		i++;
 	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
-	ft_free(&a);
-	return (0);
+	return(i);
 }
