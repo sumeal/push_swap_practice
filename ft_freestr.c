@@ -12,17 +12,17 @@
 
 #include "push_swap.h"
 
-void	ft_freestr(char **lst)
+void	ft_freestr(char **str)
 {
-	char	*n1;
+	char	*temp;
 
-	if (!lst)
+	if (!str)
 		return ;
-	while (*lst)
+	while (*str)
 	{
-		n1 = *lst;
-		lst++;
-		free(n1);
+		temp = *str;
+		str++;
+		free(temp);
 	}
-	*lst = NULL;
+	*str = NULL;
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_case_rarb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 11:41:33 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 11:45:10 by abin-moh         ###   ########.fr       */
+/*   Created: 2025/01/03 10:52:46 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/03 15:54:01 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.c"
 
-void	ft_sa(t_stack **a, int i)
+int ft_case_rarb(stack_a *a, t_stack *b, int c)
 {
-	t_stack	*tmp;
+	int	i;
 
-	if (!*a || !((*a)->next))
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	(*a)->next = temp;
-	if (i == 0)
-		write(1, "sa\n", 3);
+	i = ft_find_place_b(b, c);
+	if (i < ft_find_index(a, c))
+		i = ft_find_index(a, c);
+	return (i);
 }

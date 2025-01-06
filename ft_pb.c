@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_pb.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 11:41:33 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 11:45:10 by abin-moh         ###   ########.fr       */
+/*   Created: 2025/01/03 10:17:03 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/03 10:26:07 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	ft_sa(t_stack **a, int i)
+void	ft_pb(t_stack **stack_a, t_stack **stack_b, int i)
 {
-	t_stack	*tmp;
+	t_stack *tmp;
 
-	if (!*a || !((*a)->next))
+	if(!*stack_a)
 		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	(*a)->next = temp;
+	tmp = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_b)->next = tmp;
 	if (i == 0)
-		write(1, "sa\n", 3);
+		write(1, "pb\n", 3);
 }

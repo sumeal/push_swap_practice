@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_find_index.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/31 11:41:33 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/31 11:45:10 by abin-moh         ###   ########.fr       */
+/*   Created: 2025/01/03 12:16:12 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/03 12:29:21 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_stack **a, int i)
+int	ft_find_index(t_stack *a, int nbr)
 {
-	t_stack	*tmp;
+	int	i;
 
-	if (!*a || !((*a)->next))
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	(*a)->next = temp;
-	if (i == 0)
-		write(1, "sa\n", 3);
+	i = 0;
+	while(a->nbr != nbr)
+	{
+		i++;
+		a = a->next;
+	}
+	a->index = 0;
+	return (i);
 }
