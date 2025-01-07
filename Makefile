@@ -1,43 +1,52 @@
-NAME = push_swap
-CC = cc
-RM = rm -f
-FLAGS = -Wall -Wextra -Werror
-LIBFTDIR = libft/
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/07 22:17:46 by muzz              #+#    #+#              #
+#    Updated: 2025/01/08 00:09:21 by muzz             ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRC = ft_add_back.c \
-		ft_atoi2.c \
-		ft_checkdup.c \
-		ft_checksorted.c \
+NAME = push_swap
+
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
+FILES = ft_check_valid.c \
 		ft_error.c \
-		ft_free.c \
-		ft_freestr.c \
-		ft_lstlast.c \
-		ft_process.c \
-		ft_stack_new.c \
-		ft_sub_process.c \
+		ft_free_stack.c \
+		ft_init_stack.c \
+		ft_lstadd.c \
+		ft_lstnew.c \
 		push_swap.c \
 
-OBJ = ${SRC:.c=.o}
+OFILES = $(FILES:.c=.o)
 
-INCLUDE = -L ./libft -lft
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-.c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+$(NAME): $(OFILES) $(LIBFT)
+	$(CC) $(CFLAGS) $(OFILES) $(LIBFT) -o $(NAME)
 
-${NAME}: ${OBJ}
-	make -C ${LIBFTDIR}
-	${CC} ${FLAGS} ${OBJ} -o ${NAME} ${INCLUDE}
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
-all: ${NAME}
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
+
+all: $(NAME)
 
 clean:
-	${RM} ${OBJ}
-	@cd ${LIBFTDIR} && $(MAKE) clean
+	rm -f $(OFILES)
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	${RM} ${NAME}
-	@cd ${LIBFTDIR} && $(MAKE) fclean
+	rm -f $(NAME)
+	make fclean -C $(LIBFT_DIR)
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean fclean all
+.PHONY: all clean fclean re

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_free_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 10:56:20 by abin-moh          #+#    #+#             */
-/*   Updated: 2024/12/23 11:53:33 by abin-moh         ###   ########.fr       */
+/*   Created: 2025/01/07 23:10:15 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/07 23:10:25 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-typedef struct s_node
+void	ft_free_stack(t_stack *a)
 {
-	int				data;
-	struct s_Node	*next;
-	struct s_Node	*prev;
-}	t_node;
+	t_node	*current;
+	t_node	*temp;
 
-typedef struct s_stack
-{
-	s_stack			*top;
-	s_stack			*bottom;
-}	t_stack;
-
-#endif
+	current = a->top;
+	while (current)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	free(a);
+}

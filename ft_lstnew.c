@@ -6,13 +6,13 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 15:36:06 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 16:24:24 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/07 22:45:05 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	ft_lstnew(long num, int index)
+t_node	*ft_lstnew(long num, int index)
 {
 	t_node	*new;
 
