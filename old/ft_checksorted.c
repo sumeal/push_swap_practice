@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_checksorted.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:12:41 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 14:12:58 by muzz             ###   ########.fr       */
+/*   Created: 2024/12/31 09:21:02 by abin-moh          #+#    #+#             */
+/*   Updated: 2025/01/07 10:52:56 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+int	ft_checksorted(t_stack *stack_a)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	int	i;
+
+	i = stack_a->nbr;
+	while (stack_a)
+	{
+		if (i > stack_a->nbr)
+			return (0);
+		i = stack_a->nbr;
+		stack_a = stack_a->next;
+	}
+	return (1);
 }

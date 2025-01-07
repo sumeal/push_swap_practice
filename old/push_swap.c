@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:12:41 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 14:12:58 by muzz             ###   ########.fr       */
+/*   Created: 2024/12/30 12:17:21 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/31 10:17:35 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+int	main(int argc, char **argv)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	t_stack	*a;
+
+	a = ft_process(argc, argv);
+	if (!a || ft_checkdup(a))
+	{
+		ft_free(&a);
+		ft_error();
+	}
+	if (!ft_checksorted(a))
+		ft_sort(&a);
+	ft_free(&a);
+	return (0);
 }

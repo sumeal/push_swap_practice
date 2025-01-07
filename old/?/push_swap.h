@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:12:41 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 14:12:58 by muzz             ###   ########.fr       */
+/*   Created: 2024/12/23 10:56:20 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/12/23 11:53:33 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-void	ft_error(void)
+typedef struct s_node
 {
-	write(1, "Error\n", 6);
-	exit(1);
-}
+	int				data;
+	struct s_Node	*next;
+	struct s_Node	*prev;
+}	t_node;
+
+typedef struct s_stack
+{
+	s_stack			*top;
+	s_stack			*bottom;
+}	t_stack;
+
+#endif

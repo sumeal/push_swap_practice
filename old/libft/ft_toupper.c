@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: abin-moh <abin-moh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:12:41 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 14:12:58 by muzz             ###   ########.fr       */
+/*   Created: 2024/11/11 15:20:34 by abin-moh          #+#    #+#             */
+/*   Updated: 2024/11/15 15:46:47 by abin-moh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_error(void)
+int	ft_toupper(int c)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+	return (c);
 }
+/*
+#include <stdio.h>
+
+int main()
+{
+	int a = 'a';
+	int b = 'A';
+
+	printf("%c\n", ft_toupper(a));
+	printf("%c\n", ft_toupper(b));
+	return (0);
+}
+*/

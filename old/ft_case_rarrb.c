@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_case_rarrb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 14:12:41 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 14:12:58 by muzz             ###   ########.fr       */
+/*   Created: 2025/01/06 10:20:28 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/07 11:16:49 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_error(void)
+int	ft_case_rarrb(t_stack *a, t_stack *b, int c)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	int i;
+	
+	i = 0;
+	if (ft_find_place_b(b, c))
+		i = ft_lstsize(b) - ft_find_place_b(b, c);
+	i = ft_find_index(a, c) + i;
+	return (i);
 }
