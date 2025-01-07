@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 15:39:38 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 15:39:52 by muzz             ###   ########.fr       */
+/*   Created: 2025/01/07 16:10:48 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/07 17:05:19 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_lstlast(t_node *lst)
+void	ft_lstadd(t_stack **a, t_node *new, int index)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	if (!*a)
+	{
+		(*a)->top = new;
+		(*a)->size = 1;
+	}
+	else
+	{
+		new->next = (*a)->top;
+		(*a)->top->prev = new;
+		(*a)->top = new;
+		(*a)->size++;
+	}
+	new->index = index;
 }

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 15:39:38 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 15:39:52 by muzz             ###   ########.fr       */
+/*   Created: 2025/01/07 15:36:06 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/07 16:24:24 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_lstlast(t_node *lst)
+t_node	ft_lstnew(long num, int index)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	t_node	*new;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	if (!new)
+		ft_error();
+	new->num = num;
+	new->index = index;
+	new->step = 0;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }

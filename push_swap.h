@@ -6,18 +6,20 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:46:30 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 13:55:27 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/07 15:47:09 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-typedef struck s_node
+typedef struct s_node
 {
-	long	num;
-	long	index;
-	long	step;
+	long			num;
+	long			index;
+	long			step;
+	struct s_node	*next;
+	struct s_node	*prev;
 } t_node;
 
 typedef struct s_stack
