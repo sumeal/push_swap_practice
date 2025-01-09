@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_is_sorted.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 10:24:03 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/08 10:24:12 by muzz             ###   ########.fr       */
+/*   Created: 2025/01/08 09:17:02 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/08 10:47:45 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*ft_lstlast(t_node *lst)
+int	ft_is_sorted(t_stack *a)
 {
 	t_node	*current;
-
-	current = lst;
-	while (current->next)
+	long	i;
+	
+	i = (a)->size;
+	current = a->top;
+	i--;
+	while (i--)
+	{
+		if (current->num > current->next->num)
+			return (0);
 		current = current->next;
-	return (current);
+	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/07 22:17:46 by muzz              #+#    #+#              #
-#    Updated: 2025/01/08 00:09:21 by muzz             ###   ########.fr        #
+#    Updated: 2025/01/09 14:37:38 by muzz             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,14 @@ FILES = ft_check_valid.c \
 		ft_lstadd.c \
 		ft_lstnew.c \
 		push_swap.c \
+		ft_is_sorted.c \
+		ft_lstlast.c \
+		ft_op_push.c \
+		ft_op_rot.c \
+		ft_op_rrot.c \
+		ft_op_swap.c \
+		ft_sort_stack.c \
+		ft_sort_algo.c \
 
 OFILES = $(FILES:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 23:10:15 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/07 23:10:25 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/09 09:52:36 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 
 void	ft_free_stack(t_stack *a)
 {
-	t_node	*current;
+	long		i;
 	t_node	*temp;
-
+	t_node	*current;
+	
+	if (!a || a->size == 0)
+	{
+		free(a);
+		return ;
+	}
+	i = 1;
 	current = a->top;
-	while (current)
+	while (i < a->size)
 	{
 		temp = current;
 		current = current->next;
 		free(temp);
+		i++;
 	}
 	free(a);
 }
