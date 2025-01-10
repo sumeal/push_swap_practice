@@ -6,7 +6,7 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 16:10:48 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/08 10:37:39 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/10 11:39:11 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 void	ft_lstadd(t_stack **a, t_node *new)
 {
 	t_node	*last;
-	
+
 	if (!(*a)->top)
 	{
-		
 		(*a)->top = new;
 		new->next = new;
 		new->prev = new;

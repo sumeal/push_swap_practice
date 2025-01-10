@@ -5,37 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 14:35:56 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/09 16:50:31 by muzz             ###   ########.fr       */
+/*   Created: 2025/01/10 09:58:50 by muzz              #+#    #+#             */
+/*   Updated: 2025/01/10 11:17:21 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	get_max_bits(int size)
+{
+	int	max_bits;
+
+	max_bits = 0;
+	while (size > 0)
+	{
+		max_bits++;
+		size >>= 1;
+	}
+	return (max_bits);
+}
+
+void	push_elements_based_on_bit(t_stack *a, t_stack *b, int size, int i)
+{
+	int		j;
+	t_node	*current;
+
+	j = 0;
+	while (j < size)
+	{
+		current = a->top;
+		if (((current->index >> i) & 1) == 0)
+			ft_pb(a, b, 1);
+		else
+			ft_ra(a, 1);
+		j++;
+	}
+}
+
+void	push_elements_back(t_stack *a, t_stack *b)
+{
+	while (b->size > 0)
+		ft_pa(a, b, 1);
+}
+
 void	ft_sort_algo(t_stack *a, t_stack *b)
 {
-    int max_bits = 0;
-    int size = a->size;
-    int i, j;
-    t_node *current;
+	int	max_bits;
+	int	i;
+	int	size;
 
-    // Find the maximum number of bits needed to represent the largest index
-    current = a->top;
-    for (int tmp = size - 1; tmp > 0; tmp >>= 1)
-        max_bits++;
-
-    // Perform radix sort for each bit
-    for (i = 0; i < max_bits; i++)
-    {
-        for (j = 0; j < size; j++)
-        {
-            current = a->top;
-            if (((current->index >> i) & 1) == 0)
-                ft_pb(a, b, 1); // Push to stack b if the current bit is 0
-            else
-                ft_ra(a, 1);    // Rotate if the current bit is 1
-        }
-        while (b->size > 0)
-            ft_pa(b, a, 1); // Push all elements back to stack a
-    }
+	size = a->size;
+	i = 0;
+	assign_indices(a);
+	max_bits = get_max_bits(size);
+	while (i < max_bits)
+	{
+		push_elements_based_on_bit(a, b, size, i);
+		push_elements_back(a, b);
+		i++;
+	}
 }

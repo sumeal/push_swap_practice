@@ -6,7 +6,7 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 09:16:39 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/09 11:46:23 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/10 11:33:07 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ static void	ft_push(t_stack *stack, t_node *tmp)
 	stack->size++;
 }
 
-void    ft_pa(t_stack *a, t_stack *b, int i)
+void	ft_pa(t_stack *a, t_stack *b, int i)
 {
-    t_node  *tmp;
+	t_node	*tmp;
 
 	tmp = ft_pop(b);
 	if (!tmp)
 		return ;
 	ft_push(a, tmp);
-    if (i == 1)
-        write(1, "pa\n", 3);
+	if (i == 1)
+		write(1, "pa\n", 3);
 }
 
-void    ft_pb(t_stack *a, t_stack *b, int i)
+void	ft_pb(t_stack *a, t_stack *b, int i)
 {
-	t_node  *tmp;
+	t_node	*tmp;
 
 	tmp = ft_pop(a);
 	if (!tmp)
