@@ -6,7 +6,7 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 11:51:04 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/10 11:13:46 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/10 12:27:33 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_sort_5(t_stack *a, t_stack *b)
 	if (ft_is_sorted(a))
 		return ;
 	ft_push_extreme(a, b, 0);
-	ft_push_extreme(a, b, 1);
+	ft_push_extreme(a, b, 0);
 	ft_sort_3(a);
 	ft_pa(b, a, 1);
 	ft_pa(b, a, 1);
@@ -82,6 +82,8 @@ void	ft_sort_stack(t_stack *a, t_stack *b)
 		ft_sa(a, 1);
 	else if (a->size == 3)
 		ft_sort_3(a);
+	else if (a->size == 4)
+		ft_sort_4(a, b);
 	else if (a->size == 5)
 		ft_sort_5(a, b);
 	else

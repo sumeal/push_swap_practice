@@ -6,7 +6,7 @@
 /*   By: muzz <muzz@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:46:30 by muzz              #+#    #+#             */
-/*   Updated: 2025/01/10 11:46:15 by muzz             ###   ########.fr       */
+/*   Updated: 2025/01/10 14:45:16 by muzz             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	bubble_sort(long *arr, int size);
 long	*prepare_sorted_array(t_stack *a, long *offset);
 void	assign_stack_indices(t_stack *a, long *arr, long offset);
 void	assign_indices(t_stack *a);
+void	ft_push_extreme(t_stack *a, t_stack *b, int find_largest);
+void	ft_sort_4(t_stack *a, t_stack *b);
+t_node	*find_biggest(t_stack *a);
+
+
 
 //operations
 void	ft_pa(t_stack *a, t_stack *b, int i);
